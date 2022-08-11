@@ -2,6 +2,10 @@ import './App.css';
 import { useSelector } from 'react-redux';
 import AddExpense from './components/AddExpense';
 import FilterSearch from './components/FilterSearch';
+import Budget from './components/Budget';
+import Remaining from './components/Remaining';
+import Spent from "./components/Spent";
+
 
 function App() {
   const budget = useSelector(store => store.budget)
@@ -12,16 +16,16 @@ function App() {
       <h1 className='text-capitalize my-4'>my budget planner</h1>
       <div className="row  d-flex justify-content-between">
         <div className="col-md alert alert-dark mx-2">
-          {/* <Budget /> */}
-          Budget
+          <Budget />
+          
         </div>
         <div className="col-md alert alert-success mx-2">
-          {/* <Remaining /> */}
-          Remaining
+          <Remaining />
+          
         </div>
         <div className="col-md alert alert-info mx-2">
-          {/* <Spent /> */}
-          Spent so far
+          <Spent />
+          
         </div>
       </div>
       <h2 className='mt-5 mb-2'>Expenses</h2>
