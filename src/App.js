@@ -10,7 +10,7 @@ import { calculateTotalPrice } from "./redux/budgetSlice";
 
 
 function App() {
-  const { items } = useSelector(state => state.budget);
+  const { items, total, budget } = useSelector(state => state.budget);
   const dispatch = useDispatch();
 
   React.useEffect( () => {
@@ -21,6 +21,15 @@ function App() {
     dispatch(calculateTotalPrice());
   }, [items, dispatch])
 
+  const numberState = budget - total;
+  let bootstrapText ="";
+  if(numberState> 0){
+    bootstrapText= "col-md alert alert-success mx-2";
+  }
+  else if(numberState <= 0) {
+    bootstrapText ="col-md alert alert-danger mx-2"
+  }
+
   return (
     <div className="container mt-5 mx-auto">
       <h1 className='text-capitalize my-4'>my budget planner toggle</h1>
@@ -29,7 +38,7 @@ function App() {
           <Budget />
 
         </div>
-        <div className="col-md alert alert-success mx-2">
+        <div className={bootstrapText}>
           <Remaining />
 
         </div>
