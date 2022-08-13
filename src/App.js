@@ -1,4 +1,5 @@
 import './App.css';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import AddExpense from './components/AddExpense';
 import FilterSearch from './components/FilterSearch';
@@ -8,9 +9,10 @@ import Spent from "./components/Spent";
 
 
 function App() {
-  const { budget, items} = useSelector(store => store)
-  console.log(budget);
-  console.log(items);
+  const { items } = useSelector(state => state.budget);
+  React.useEffect( () => {
+    localStorage.setItem("items", JSON.stringify(items))
+  }, [items])
 
   return (
     <div className="container mt-5 mx-auto">
