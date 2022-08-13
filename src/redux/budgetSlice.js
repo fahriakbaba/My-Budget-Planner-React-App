@@ -4,6 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     budget: 2000,
     items: JSON.parse(localStorage.getItem("items")) || [],
+    total: 0,
 }
 
 export const budgetSlice = createSlice({
@@ -20,9 +21,14 @@ export const budgetSlice = createSlice({
         },
         deleteItem: (state, action) => {
             state.items= state.items.filter(item => item.id !== action.payload)
+        },
+        calculateTotalPrice: (state, action) => {
+            state.total = state.items.reduce((acc, value) => {
+                return acc + Number(value.price)
+            },0 );
         }
     }
 })
 
-export const { addToItems, deleteItem } = budgetSlice.actions;
+export const { addToItems, deleteItem, calculateTotalPrice } = budgetSlice.actions;
 export default budgetSlice.reducer;

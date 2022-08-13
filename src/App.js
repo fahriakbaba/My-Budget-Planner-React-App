@@ -1,18 +1,25 @@
 import './App.css';
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import AddExpense from './components/AddExpense';
 import FilterSearch from './components/FilterSearch';
 import Budget from './components/Budget';
 import Remaining from './components/Remaining';
 import Spent from "./components/Spent";
+import { calculateTotalPrice } from "./redux/budgetSlice";
 
 
 function App() {
   const { items } = useSelector(state => state.budget);
+  const dispatch = useDispatch();
+
   React.useEffect( () => {
     localStorage.setItem("items", JSON.stringify(items))
   }, [items])
+
+  React.useEffect( () => {
+    dispatch(calculateTotalPrice());
+  }, [items, dispatch])
 
   return (
     <div className="container mt-5 mx-auto">
