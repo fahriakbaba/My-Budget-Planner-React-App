@@ -18,6 +18,7 @@ function AddExpense() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if(!data.price || !data.title) return;
     dispatch(addToItems({price:data.price, title: data.title}));
     setData({
       title:"",
