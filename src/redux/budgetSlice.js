@@ -5,6 +5,8 @@ const initialState = {
     budget: 2000,
     items: JSON.parse(localStorage.getItem("items")) || [],
     total: 0,
+    showBudget: true,
+    themeMode: false,
 }
 
 export const budgetSlice = createSlice({
@@ -26,9 +28,12 @@ export const budgetSlice = createSlice({
             state.total = state.items.reduce((acc, value) => {
                 return acc + Number(value.price)
             },0 );
+        },
+        changeMode: (state) => {
+            state.themeMode  = !state.themeMode;
         }
     }
 })
 
-export const { addToItems, deleteItem, calculateTotalPrice } = budgetSlice.actions;
+export const { addToItems, deleteItem, calculateTotalPrice, changeMode } = budgetSlice.actions;
 export default budgetSlice.reducer;

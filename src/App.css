@@ -1,0 +1,33 @@
+.edit-btn {
+    color:  #cf2032;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    font-size: 1.2;
+    margin-left: 8px;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    font-weight: 900;
+    text-transform: capitalize;
+    letter-spacing: .5px;
+    transition: all .7s;
+}
+
+.edit-btn:hover {
+    transform: scale(1.2);
+     
+}
+
+.App {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.dark-mode {
+    background-color: black;
+    color: white;
+}

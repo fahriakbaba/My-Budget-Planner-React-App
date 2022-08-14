@@ -37,6 +37,7 @@ function AddExpense() {
             className='form-control'
             value={data.title}
             name="title"
+            placeholder='Enter your expense'
             onChange={handleChange}
           />
         </div>
@@ -48,6 +49,7 @@ function AddExpense() {
             className='form-control'
             value={data.price}
             name="price"
+            placeholder='e.g $100'
             onChange={handleChange}
           />
         </div>
