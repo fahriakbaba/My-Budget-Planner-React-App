@@ -17,7 +17,7 @@ function EditBudget() {
       <input
         type="text"
         className='input-number'
-        placeholder='$100'
+        placeholder='e.g $1000'
         value={price}
         onChange={(e) => setPrice(e.target.value)}
       />

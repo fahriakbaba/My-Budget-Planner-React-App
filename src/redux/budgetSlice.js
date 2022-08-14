@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 
 const initialState = {
-    budget: 5000,
+    budget: JSON.parse(localStorage.getItem("budget")) || 6600,
     items: JSON.parse(localStorage.getItem("items")) || [],
     total: 0,
     showBudget: true,
@@ -39,6 +39,7 @@ export const budgetSlice = createSlice({
         saveBudget: (state, action) => {
             state.budget = Number(action.payload);
             state.showBudget = true;
+            localStorage.setItem("budget", JSON.stringify(state.budget));
         }
     }
 })
