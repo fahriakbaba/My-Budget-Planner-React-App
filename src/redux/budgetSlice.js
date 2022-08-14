@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 
 const initialState = {
-    budget: 2000,
+    budget: 5000,
     items: JSON.parse(localStorage.getItem("items")) || [],
     total: 0,
     showBudget: true,
@@ -22,19 +22,26 @@ export const budgetSlice = createSlice({
             state.items.push(newItem);
         },
         deleteItem: (state, action) => {
-            state.items= state.items.filter(item => item.id !== action.payload)
+            state.items = state.items.filter(item => item.id !== action.payload)
         },
         calculateTotalPrice: (state, action) => {
             state.total = state.items.reduce((acc, value) => {
                 return acc + Number(value.price)
-            },0 );
+            }, 0);
         },
         changeMode: (state) => {
-            state.themeMode  = !state.themeMode;
+            state.themeMode = !state.themeMode;
             localStorage.setItem("mode", JSON.stringify(state.themeMode));
+        },
+        clickEdit: (state) => {
+            state.showBudget = false;
+        },
+        saveBudget: (state, action) => {
+            state.budget = Number(action.payload);
+            state.showBudget = true;
         }
     }
 })
 
-export const { addToItems, deleteItem, calculateTotalPrice, changeMode } = budgetSlice.actions;
+export const { addToItems, deleteItem, calculateTotalPrice, changeMode, clickEdit, saveBudget } = budgetSlice.actions;
 export default budgetSlice.reducer;

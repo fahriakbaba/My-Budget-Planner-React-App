@@ -5,7 +5,7 @@ function Spent() {
   const { total } = useSelector(state => state.budget);
 
   return (
-    <div className='d-flex justify-content-between align-items-center'>
+    <div className='d-flex justify-content-between align-items-center w-100'>
       Spent so far
       <span style={{fontWeight:"bold"}}>${total}</span>
     </div>

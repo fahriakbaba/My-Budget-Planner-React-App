@@ -13,7 +13,12 @@ function FilterSearch() {
 
   const filterSearch = items.filter(item => item.title.toLowerCase().includes(search.toLowerCase()));
 
-  console.log(items);
+  if(!items.length) {
+    return(
+      <p className='lead'>There is no expense to show.</p>
+    )
+  }
+
   return (
     <article>
       <input

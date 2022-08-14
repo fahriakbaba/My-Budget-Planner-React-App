@@ -25,10 +25,10 @@ function App() {
   const numberState = budget - total;
   let bootstrapText = "";
   if (numberState > 0) {
-    bootstrapText = "col-md alert alert-success mx-2";
+    bootstrapText = "col-md alert alert-success mx-2 d-flex align-items-center justify-content-between";
   }
   else if (numberState <= 0) {
-    bootstrapText = "col-md alert alert-danger mx-2"
+    bootstrapText = "col-md alert alert-danger mx-2 d-flex align-items-center justify-content-between"
   }
 
   return (
@@ -41,15 +41,12 @@ function App() {
         <div className="row  d-flex justify-content-between">
           <div className="col-md alert alert-dark mx-2">
             <Budget />
-
           </div>
           <div className={bootstrapText}>
             <Remaining />
-
           </div>
-          <div className="col-md alert alert-info mx-2">
+          <div className="col-md alert alert-info mx-2 d-flex align-items-center justify-content-between">
             <Spent />
-
           </div>
         </div>
         <h2 className='mt-5 mb-2'>Add Expense</h2>
