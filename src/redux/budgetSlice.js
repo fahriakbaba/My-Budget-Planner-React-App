@@ -6,7 +6,7 @@ const initialState = {
     items: JSON.parse(localStorage.getItem("items")) || [],
     total: 0,
     showBudget: true,
-    themeMode: false,
+    themeMode: JSON.parse(localStorage.getItem("mode")) || false,
 }
 
 export const budgetSlice = createSlice({
@@ -31,6 +31,7 @@ export const budgetSlice = createSlice({
         },
         changeMode: (state) => {
             state.themeMode  = !state.themeMode;
+            localStorage.setItem("mode", JSON.stringify(state.themeMode));
         }
     }
 })
