@@ -1,8 +1,8 @@
 # Getting Started with Create React App
 
-![Image](../my-budget/public/images/light.png)
-![Image](../my-budget/public/images/dark.png)
-![Image](../my-budget/public/images/phone.png)
+![Image](./public/images/light.png)
+![Image](./public/images/dark.png)
+![Image](./public/images/phone.png)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
